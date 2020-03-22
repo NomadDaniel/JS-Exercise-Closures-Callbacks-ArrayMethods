@@ -48,10 +48,12 @@ function processFirstItem(stringList, callback) {
  * [2] Invoking `processLength` passing `[]` and `(num) => "There are " + num`,
  * should return "There are 0".
 */
-function processLength(/* CODE HERE */) {
-  /* CODE HERE */
+function processLength(list, callback) {
+  return callback(list.length);
 }
-
+const bannana = (num) => {
+  return num = 1;
+}
 /**
  * ### Challenge `processLastItem`
  * 
