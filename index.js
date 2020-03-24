@@ -113,9 +113,13 @@ const processLastItem = (stringList, callback) =>
  * [2] Invoking `processSum` passing `-5`, '-1', and `(num) => num + 1000`,
  * should return 994.
 */
-function processSum(/* CODE HERE */) {
-  /* CODE HERE */
-}
+const processSum = (num1, num2, callback) =>
+  callback(num1 + num2)
+
+
+// processSum(/* CODE HERE */) {
+//   /* CODE HERE */
+// }
 
 /**
  * ### Challenge `processProduct`
@@ -135,9 +139,12 @@ function processSum(/* CODE HERE */) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
 */
-function processProduct(/* CODE HERE */) {
-  /* CODE HERE */
-}
+
+const processProduct = (num1, num2, callback) =>
+  callback(num1 * num2)
+// function processProduct(/* CODE HERE */) {
+//   /* CODE HERE */
+// }
 
 /**
  * ### Challenge `processDuplicateFree`
@@ -157,9 +164,15 @@ function processProduct(/* CODE HERE */) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
-  /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
-}
+// filter first
+// indexOf
+
+
+const processDuplicateFree = (list, callback) =>
+  callback(list => list.length)
+// function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
+//   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
+// }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -180,9 +193,35 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * 
  * [2] Invoking `lowerCaseStrings` with `['a', 'b', 'c' ]` will return `[ 'a', 'b', 'c' ]`.
 */
-function lowerCaseStrings(/* code here */) {
+
+
+// function lowerCaseStrings(strings){
+//   let newArr = []
+//   return strings.forEach(ele => newArr.push(ele.toLowerCase()))  
+// } 
+// console.log(lowerCaseStrings([ 'Orange', 'APPLE', 'banana', 'mAnGo']))
+
+
+
+// const lowerCaseStrings = (strings) => {
+//   let newArr = []  
+//     strings.forEach(item => newArr.push => item.toLowerCase())
+//     return newArr.push
+//     }
+
+//   return newArr 
+
+  function lowerCaseStrings(strings) {
   /* code here */
+  let newArr = []
+  strings.forEach(function(item){
+    return newArr.push(item.toLowerCase())
+  })
+  return newArr
 }
+
+
+// lowerCaseStrings([ 'Orange', 'APPLE', 'banana', 'mAnGo'])
 
 /**
  * ### Challenge `isItAnApple`
@@ -199,8 +238,8 @@ function lowerCaseStrings(/* code here */) {
  * 
  * [2] Invoking `isItAnApple` with `['a', 'b', 'c' ]` will return `[ false, false, false ]`.
 */
-function isItAnApple(/* code here */) {
-  /* code here */
+function isItAnApple(strings) {
+  return strings.map(item => item === 'apple' ? true: false)
 }
 
 /**
@@ -219,8 +258,8 @@ function isItAnApple(/* code here */) {
  * 
  * [2] Invoking `removeApple` with `['a', 'b', 'c' ]` will return `[ 'a', 'b', 'c' ]`.
 */
-function removeApple(/* code here */) {
-  /* code here */
+function removeApple(strings) {
+  return strings.filter(item => item !== 'apple')
 }
 
 /**
@@ -238,9 +277,17 @@ function removeApple(/* code here */) {
  * 
  * [2] Invoking `stringSmash` with `['a', 'b', 'c' ]` will return `abc`.
 */
-function stringSmash(/* code here */) {
-  /* code here */
-}
+
+const stringSmash = (strings) =>
+  strings.reduce((accumulator, curVal) => accumulator + curVal)
+
+// function stringSmash(strings) {
+//   return strings.reduce(function(accumulator, curVal){
+//     return accumulator+curVal;
+//     }
+//   ) 
+// }
+
 
 // A local community center is holding a fund raising 5k fun run and has invited
 // 50 small businesses to make a small donation on their behalf for some much needed
@@ -257,9 +304,15 @@ function stringSmash(/* code here */) {
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
-  /* CODE HERE */
-}
+
+
+// function getFullNames(runners) {
+//   return runners.map(runner => `${runner.last_name}, ${runner.first_name}`)
+//   }
+
+const getFullNames = (runners) =>
+  runners.map(runner => `${runner.last_name}, ${runner.first_name}`)
+
 
 /**
  * ### Challenge `firstNamesAllCaps`
@@ -273,9 +326,23 @@ function getFullNames(/* CODE HERE */) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
-  /* CODE HERE */
-}
+
+const firstNamesAllCaps = (runners) =>
+  runners.map(runner => runner.first_name.toUpperCase())
+
+// function firstNamesAllCaps(runners) {
+//   let newArr = []
+//   runners.forEach(function(runner){
+//     return newArr.push(runner.first_name.toUpperCase())
+//    })
+//  return newArr
+// }
+
+// function firstNamesAllCaps(runners) {
+//   return runners.map(runner => runner.first_name.toUpperCase())
+// }
+
+
 
 /**
  * ### Challenge `getRunnersByTShirtSize`
@@ -320,11 +387,14 @@ function tallyUpDonations(/* CODE HERE */) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ 
+ * Answer: Counter2 because count is declared outside of the functional scope but invoked and ++ inside the function's code block.
+ 
  * 2. Which of the two uses a closure? How can you tell?
+ Answer: Counter2 because the child is accessing stored values from the parent.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ Answer: ?
 */
 
 // counter1 code
