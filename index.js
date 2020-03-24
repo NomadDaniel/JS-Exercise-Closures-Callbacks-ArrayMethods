@@ -51,7 +51,7 @@ function processFirstItem(stringList, callback) {
 function processLength(list, callback) {
   return callback(list.length);
 }
-const bannana = (num) => {
+const callback = (num) => {
   return num = 1;
 }
 /**
