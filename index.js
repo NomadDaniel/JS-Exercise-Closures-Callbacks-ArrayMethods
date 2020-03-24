@@ -14,9 +14,17 @@
  * Invoking `processFirstItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'foofoo'.
 */
-function processFirstItem(stringList, callback) {
-  return callback(stringList[0])
-}
+
+// Refactored Solution
+const processFirstItem = (stringList, callback) =>
+  callback(stringList[0]);
+
+
+// Original Solution
+// function processFirstItem(stringList, callback) {
+//   return callback(stringList[0])
+// }
+
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -48,29 +56,44 @@ function processFirstItem(stringList, callback) {
  * [2] Invoking `processLength` passing `[]` and `(num) => "There are " + num`,
  * should return "There are 0".
 */
-function processLength(list, callback) {
-  return callback(list.length);
-}
-const callback = (num) => {
-  return num = 1;
-}
+
+// ===============DRY Solution==============
+const processLength = (list, callback) =>
+ callback(list.length);
+
+const callback = (num) =>
+  num = 1;
+
+// ==========original solution============
+// function processLength(list, callback) {
+//   return callback(list.length);
+// }
+// const callback = (num) => {
+//   return num = 1;
+// }
 /**
- * ### Challenge `processLastItem`
+
+* ### Challenge `processLastItem`
  * 
  * @instructions
  * Implement a higher-order function called `processLastItem`.
  * It takes two arguments:
- * @param stringList array of strings.
- * @param callback function that takes a string as its argument.
- * @returns the result of invoking `callback` with the LAST element in `stringList`.
+//  * @param stringList array of strings.
+//  * @param callback function that takes a string as its argument.
+//  * @returns the result of invoking `callback` with the LAST element in `stringList`.
  * 
  * Example of usage of this higher-order function:
  * Invoking `processLastItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'barbar'.
 */
-function processLastItem(/* CODE HERE */) {
-  /* CODE HERE */
-}
+
+const processLastItem = (stringList, callback) => 
+  callback(stringList[stringList.length-1]);
+
+  
+// function processLastItem(/* CODE HERE */) {
+//   /* CODE HERE */
+// }
 
 /**
  * ### Challenge `processSum`
