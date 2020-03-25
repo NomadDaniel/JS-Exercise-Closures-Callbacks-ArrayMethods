@@ -383,7 +383,7 @@ function tallyUpDonations(/* CODE HERE */) {
  Answer: Counter2 because the child is accessing stored values from the parent.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- Answer: ?
+ Answer: The second actually increments, the first counter seems to just return a function but doesn't seem to increment. Not sure why you'd need this.
 */
 
 // counter1 code
@@ -395,6 +395,8 @@ function counterMaker() {
 }
 
 const counter1 = counterMaker();
+console.log(counter1)
+
 
 // counter2 code
 let count = 0;
@@ -402,6 +404,10 @@ let count = 0;
 function counter2() {
   return count++;
 }
+console.log(counter2())
+console.log(counter2())
+console.log(counter2())
+console.log(counter2())
 
 /**
  * ### Challenge `counterMakerWithLimit`
