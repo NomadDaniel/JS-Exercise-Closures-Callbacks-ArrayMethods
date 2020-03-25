@@ -164,12 +164,14 @@ const processProduct = (num1, num2, callback) =>
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-// filter first
-// indexOf
 
+// 
+// const processDuplicateFree = (list, callback) =>
+//  list.filter((a, b) => list.indexOf(a) === b)
 
-const processDuplicateFree = (list, callback) =>
-  callback(list => list.length)
+const processDuplicateFree = (list, callback) => [...new Set(list)]
+  // list.splice(0, list.length, (new Set(...list)))
+
 // function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
 //   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
 // }
@@ -195,33 +197,17 @@ const processDuplicateFree = (list, callback) =>
 */
 
 
-// function lowerCaseStrings(strings){
+const lowerCaseStrings = (strings) =>
+  strings.map(string => string.toLowerCase())
+
+//   function lowerCaseStrings(strings) {
 //   let newArr = []
-//   return strings.forEach(ele => newArr.push(ele.toLowerCase()))  
-// } 
-// console.log(lowerCaseStrings([ 'Orange', 'APPLE', 'banana', 'mAnGo']))
+//   strings.forEach(function(item){
+//     return newArr.push(item.toLowerCase())
+//   })
+//   return newArr
+// }
 
-
-
-// const lowerCaseStrings = (strings) => {
-//   let newArr = []  
-//     strings.forEach(item => newArr.push => item.toLowerCase())
-//     return newArr.push
-//     }
-
-//   return newArr 
-
-  function lowerCaseStrings(strings) {
-  /* code here */
-  let newArr = []
-  strings.forEach(function(item){
-    return newArr.push(item.toLowerCase())
-  })
-  return newArr
-}
-
-
-// lowerCaseStrings([ 'Orange', 'APPLE', 'banana', 'mAnGo'])
 
 /**
  * ### Challenge `isItAnApple`
@@ -358,9 +344,12 @@ const firstNamesAllCaps = (runners) =>
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-  /* CODE HERE */
-}
+// function getRunnersByTShirtSize(runners, tShirtSize) {
+//   return runners.filter(runner => runner.shirt_size === tShirtSize)
+// }
+
+const getRunnersByTShirtSize = (runners, tShirtSize) =>
+  runners.filter(runner => runner.shirt_size === tShirtSize)
 
 /**
  * ### Challenge `tallyUpDonations`
